@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// Game details
+message Game {
+  string id = 1; // Game ID
+  string date = 2; // Date of the game
+  int32 full_time_home_team_goals = 3; // Number of goals scored by the home team at full time
+  int32 full_time_away_team_goals = 4; // Number of goals scored by the away team at full time
+  Result full_time_result = 5; // Result of the game at full time
+  int32 half_time_home_team_goals = 6; // Number of goals scored by the home team at half time
+  int32 half_time_away_team_goals = 7; // Number of goals scored by the away team at half time
+  Result half_time_result = 8; // Result of the game at half time
+  string home_team = 9; // Home team name
+  string away_team = 10; // Away team name
+}
+
+enum Result {
+  H = 0; // Home team winning
+  D = 1; // Draw
+  A = 2; // Away team winning
+}
+
+// List of games
+message ListGamesResponse {
+  repeated Game games = 1; // List of games
+  int32 page_number = 2; // Fetched page number
+  int32 page_size = 3; // Fetched page size
+  int32 total_pages = 4; // Number of pages to fetch
+  int32 total_entries = 5; // Total number of records
+}

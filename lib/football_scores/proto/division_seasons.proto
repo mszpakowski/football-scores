@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// Division-season pair
+message DivisionSeason {
+  string id = 1; // Division Season ID
+  string division = 2; // Name of the division
+  string season = 3; // Season span in years
+}
+
+// List of division-season pairs
+message ListDivisionSeasonsResponse {
+  // List of available division-seasons pairs
+  repeated DivisionSeason division_seasons = 1;
+  int32 page_number = 2; // Fetched page number
+  int32 page_size = 3; // Fetched page size
+  int32 total_pages = 4; // Number of pages to fetch
+  int32 total_entries = 5; // Total number of records
+}
