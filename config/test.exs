@@ -2,10 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :football_scores, FootballScores.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "football_scores_test",
-  hostname: "localhost",
+  url: System.get_env("DATABASE_URL_TEST"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

@@ -2,10 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :football_scores, FootballScores.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "football_scores_dev",
-  hostname: "localhost",
+  url: System.get_env("DATABASE_URL"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

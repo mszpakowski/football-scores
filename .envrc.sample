@@ -1,0 +1,2 @@
+export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/football_scores_dev"
+export DATABASE_URL_TEST="postgresql://postgres:postgres@localhost:5432/football_scores_test"
