@@ -33,6 +33,7 @@ defmodule FootballScores.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:distillery, "~> 2.1"},
       {:phoenix, "~> 1.4.9"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
@@ -40,7 +41,15 @@ defmodule FootballScores.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:nimble_csv, "~> 0.6.0"},
+      {:timex, "~> 3.6"},
+      {:exprotobuf, "~> 1.2"},
+      {:proto_response, "~> 0.3.0"},
+      {:ex_machina, "~> 2.3", only: [:test]},
+      {:scrivener_ecto, "~> 2.2"},
+      {:dialyxir, "~> 0.5.1", only: [:dev], runtime: false},
+      {:open_api_spex, "~> 3.4"}
     ]
   end
 
@@ -54,7 +63,7 @@ defmodule FootballScores.MixProject do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end
