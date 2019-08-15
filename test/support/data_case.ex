@@ -22,6 +22,7 @@ defmodule FootballScores.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import FootballScores.DataCase
+      import FootballScores.Factory
     end
   end
 
